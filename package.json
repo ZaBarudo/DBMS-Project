@@ -1,0 +1,37 @@
+{
+  "name": "hypertube",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
+  "description": "Final web projet at 42 School",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "npm run front --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run start --prefix client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "scao",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.7",
+    "axios": "^0.21.4",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.2",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.6.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongo-sanitize": "^1.1.0",
+    "mongoose": "^5.9.29",
+    "node-pre-gyp": "^0.17.0"
+  }
+}
