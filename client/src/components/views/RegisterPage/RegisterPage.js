@@ -13,6 +13,7 @@ import {
   Input,
   Button,
 } from 'antd';
+import enUS from "antd/lib/calendar/locale/en_US";
 
 const formItemLayout = {
   labelCol: {
@@ -125,7 +126,7 @@ function RegisterPage(props) {
         username: '',
         password: '',
         confirmPassword: '',
-        image: ''
+        // image: ''
       }}
       validationSchema={Yup.object().shape({
         username: Yup.string()
@@ -168,13 +169,13 @@ function RegisterPage(props) {
             username: values.username,
             firstName: values.firstName,
             lastName: values.lastName,
-            image: image
+            // image: image
           };
 
-          if (!image || image === '') {
-            message.error(t('register.imageErr'))
-          }
-          else {
+          // if (!image || image === '') {
+          //   message.error(t('register.imageErr'))
+          // }
+          // else {
 
             dispatch(registerUser(dataToSubmit)).then(response => {
               if (response.payload.success) {
@@ -195,7 +196,7 @@ function RegisterPage(props) {
                 alert(response.payload.err);
               }
             })
-          }
+          // }
           setSubmitting(false);
         }, 500);
       }}
@@ -323,7 +324,7 @@ function RegisterPage(props) {
                   )}
                 </Form.Item>
 
-                <Form.Item required label={t('register.image')}>
+                {/* <Form.Item required label={t('register.image')}>
                   <Input
                     id="image"
                     type="file"
@@ -337,7 +338,7 @@ function RegisterPage(props) {
                   <div name="image" className="imagePreview">
                   {loading ? <Spinner />: <img src={image} alt="" />}
                   </div>
-                </Form.Item>
+                </Form.Item> */}
 
                 <Form.Item {...tailFormItemLayout}>
                   <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>

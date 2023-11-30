@@ -151,7 +151,7 @@ function ProfilePage() {
             firstName: info.firstName,
             lastName: info.lastName,
             username: info.username,
-            image: image,
+            // image: image,
             lang: language,
           }}
           validationSchema={Yup.object().shape({
@@ -226,7 +226,7 @@ function ProfilePage() {
                 <br />
                 <main style={{ position: 'relative' }}>
                 <Form key={info._id} style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit}>
-                  <Form.Item required label={t('editProfile.avatar')}>
+                  {/* <Form.Item required label={t('editProfile.avatar')}>
                     <div name="image" className="imagePreview" >
                     {image ? <Avatar src={image} size={130}/>
                     : 
@@ -243,7 +243,7 @@ function ProfilePage() {
                       value={content}
                       onBlur={handleBlur}
                     />
-                  </Form.Item>
+                  </Form.Item> */}
 
                   <Form.Item required label={t("editProfile.prefLang")}>
                     <select defaultValue={language} onChange={onChange}>

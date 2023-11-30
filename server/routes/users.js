@@ -189,10 +189,6 @@ router.post("/login", (req, res) => {
             if (!isMatch)
                 return res.json({ loginSuccess: false, message: "Wrong password" });
 
-            user.CheckTokenMail(sanitize(req.body.username), (err, tokenfind) => {
-                console.log("the mail is confirmed :", tokenfind)
-                if (!tokenfind)
-                    return res.json({ loginSuccess: false, message: "thx to check your email" });
                 user.generateToken((err, user) => {
                     if (err) return res.status(400).send(err);
                     res.cookie("w_authExp", user.tokenExp);
@@ -202,8 +198,8 @@ router.post("/login", (req, res) => {
                         .json({
                             loginSuccess: true, userId: user._id
                         });
+                
                 });
-            });
         });
     });
 });

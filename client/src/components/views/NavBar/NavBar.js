@@ -21,10 +21,10 @@ function NavBar() {
   return (
     <nav className="menu" style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="menu__logo">
-      {user.userData && !user.userData.isAuth ?
+      {/* {user.userData && !user.userData.isAuth ?
         <a href="/"><img src="https://res.cloudinary.com/dkyqbngya/image/upload/c_scale,w_200/v1584983552/logo_lqnlwk.png" alt="Logo" style={{ width: '100%', marginTop: '-5px' }} /></a> 
         : <a href="/landing"><img src="https://res.cloudinary.com/dkyqbngya/image/upload/c_scale,w_200/v1584983552/logo_lqnlwk.png" alt="Logo" style={{ width: '100%', marginTop: '-5px' }} /></a>
-        }
+        } */}
       </div>
       <div className="menu__container">
         <div className="menu_left">

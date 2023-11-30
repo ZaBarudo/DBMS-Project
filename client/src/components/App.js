@@ -48,7 +48,6 @@ function App() {
           <Route component={Auth(NotFound, null)}/>
         </Switch>
       </div>
-      <Footer />
     </Suspense>
   );
 }
