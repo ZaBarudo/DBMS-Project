@@ -1,7 +1,5 @@
 # DBMS-Project
 
-You may see the live demo here: https://hypertube-scao.herokuapp.com/
-
 This **MERN application (MongoDB, Express, NodeJS, ReactJS)** was made as part of 42's School web branch. 
 
 This app contains several features:
@@ -13,7 +11,6 @@ This app contains several features:
 - English and French translations available
 - Mobile-friendly
 
-The subject initially asked for a "Netflix-clone" by streaming movies via torrenting - however for legal reasons I removed this part in the deployed demo and embedded YouTube videos instead.
 
 ## Homepage
 ![alt text](https://github.com/sandrinecao/IMDb-Clone/blob/main/img/landing.png "Homepage")
