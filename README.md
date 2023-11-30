@@ -1,6 +1,6 @@
 # DBMS-Project
 
-This **MERN application (MongoDB, Express, NodeJS, ReactJS)** was made as part of 42's School web branch. 
+This is a **MERN (MongoDB, Express, NodeJS, ReactJS)** Stack Application.
 
 This app contains several features:
 - Login & Sign Up forms
