@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { registerUser } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
 import { message } from 'antd';
-import Spinner from '../LandingPage/Sections/Spinner';
+// import Spinner from '../LandingPage/Sections/Spinner';
 import { useTranslation } from 'react-i18next';
 import { store } from "react-notifications-component";
 import {
@@ -13,7 +13,7 @@ import {
   Input,
   Button,
 } from 'antd';
-import enUS from "antd/lib/calendar/locale/en_US";
+// import enUS from "antd/lib/cal/endar/locale/en_US";
 
 const formItemLayout = {
   labelCol: {
@@ -42,78 +42,78 @@ const tailFormItemLayout = {
 function RegisterPage(props) {
   const { t } = useTranslation();
 
-  const [image, setImage] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [content, setContent] = React.useState("");
-  const imageInputRef = React.useRef();
-  var allowedTypes = ["jpg", "jpeg", "png", "gif"];
+  // const [image, setImage] = useState('');
+  // const [loading, setLoading] = useState(false);
+  // const [content, setContent] = React.useState("");
+  // const imageInputRef = React.useRef();
+  // var allowedTypes = ["jpg", "jpeg", "png", "gif"];
 
 
-  const uploadImage = e => {
-    e.preventDefault();
-    setContent(e.target.value)
-    const files = e.target.files[0];
-    const cloudName = "dkyqbngya";
-    const unsignedUploadPreset = "f7r0dz2t";
-    var url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
-    if (!files || files.length === 0)
-      return;
-    if (files) {
-      var extension = files.name.replace(/.*\./, '').toLowerCase();
-      if (allowedTypes.indexOf(extension) < 0) {
-        message.error(`${files.type}${t('register.imgFormat')}`)
-        imageInputRef.current.value = "";
-        setContent("");
-        setImage(""); 
-        return;
-      }
-      if (files.size > 150000) {
-        message.error(`${files.name}${t('register.imgTooLarge')}`)
-        imageInputRef.current.value = "";
-        setContent("");
-        setImage(""); 
-        return;
-      }
-      else {
-        var fd = new FormData();
-        fd.append("file", files);
-        fd.append("upload_preset", unsignedUploadPreset);
-        setLoading(true);
-        const config = {
-          headers: { "X-Requested-With": "XMLHttpRequest" },
-        };
-        axios.post(url, fd, config)
-          .then(res => {
-            setLoading(false)
-            // console.log(res)
-            var url = res.data.secure_url;
-            // console.log(res.data)
-            var resize = url.split('/');
-            resize.splice(-3, 0, 'w_125,c_scale');
-            var img = new Image();
-            img.src = resize.join('/');
-            setImage(img.src)
-          })
-          .catch((err) => {
-            if (err) {
-              switch (err.response.status) {
-                case 400:
-                  message.error(t('register.imgInvalid'))
-                  break;
-                case 404:
-                  message.error(t('register.imgNotFound'))
-                  break;
-                case 500:
-                  message.error(t('register.imgError'))
-                  break;
-                default:
-                  break;
-              }
-            }
-          })
-      }
-    }
-  }
+  // const uploadImage = e => {
+  //   e.preventDefault();
+  //   setContent(e.target.value)
+  //   const files = e.target.files[0];
+  //   const cloudName = "dkyqbngya";
+  //   const unsignedUploadPreset = "f7r0dz2t";
+  //   var url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+  //   if (!files || files.length === 0)
+  //     return;
+  //   if (files) {
+  //     var extension = files.name.replace(/.*\./, '').toLowerCase();
+  //     if (allowedTypes.indexOf(extension) < 0) {
+  //       message.error(`${files.type}${t('register.imgFormat')}`)
+  //       imageInputRef.current.value = "";
+  //       setContent("");
+  //       setImage(""); 
+  //       return;
+  //     }
+  //     if (files.size > 150000) {
+  //       message.error(`${files.name}${t('register.imgTooLarge')}`)
+  //       imageInputRef.current.value = "";
+  //       setContent("");
+  //       setImage(""); 
+  //       return;
+  //     }
+  //     else {
+  //       var fd = new FormData();
+  //       fd.append("file", files);
+  //       fd.append("upload_preset", unsignedUploadPreset);
+  //       setLoading(true);
+  //       const config = {
+  //         headers: { "X-Requested-With": "XMLHttpRequest" },
+  //       };
+  //       axios.post(url, fd, config)
+  //         .then(res => {
+  //           setLoading(false)
+  //           // console.log(res)
+  //           var url = res.data.secure_url;
+  //           // console.log(res.data)
+  //           var resize = url.split('/');
+  //           resize.splice(-3, 0, 'w_125,c_scale');
+  //           var img = new Image();
+  //           img.src = resize.join('/');
+  //           setImage(img.src)
+  //         })
+  //         .catch((err) => {
+  //           if (err) {
+  //             switch (err.response.status) {
+  //               case 400:
+  //                 message.error(t('register.imgInvalid'))
+  //                 break;
+  //               case 404:
+  //                 message.error(t('register.imgNotFound'))
+  //                 break;
+  //               case 500:
+  //                 message.error(t('register.imgError'))
+  //                 break;
+  //               default:
+  //                 break;
+  //             }
+  //           }
+  //         })
+  //     }
+  //   }
+  // }
 
   const dispatch = useDispatch();
   return (
@@ -179,18 +179,18 @@ function RegisterPage(props) {
 
             dispatch(registerUser(dataToSubmit)).then(response => {
               if (response.payload.success) {
-                store.addNotification({
-                  message: t('register.checkEmail'),
-                  insert: "top",
-                  type: 'success',
-                  container: "top-right",
-                  animationIn: ["animated", "fadeIn"],
-                  animationOut: ["animated", "fadeOut"],
-                  dismiss: {
-                    duration: 5000,
-                    onScreen: true
-                  }
-                });
+                // store.addNotification({
+                //   message: t('register.checkEmail'),
+                //   insert: "top",
+                //   type: 'success',
+                //   container: "top-right",
+                //   animationIn: ["animated", "fadeIn"],
+                //   animationOut: ["animated", "fadeOut"],
+                //   dismiss: {
+                //     duration: 5000,
+                //     onScreen: true
+                //   }
+                // });
                 props.history.push("/login");
               } else {
                 alert(response.payload.err);

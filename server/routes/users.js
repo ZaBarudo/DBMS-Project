@@ -266,10 +266,10 @@ router.post('/forgotPassword', async (req, res) => {
             </html>`;
             const mailOptions = {
                 from: {
-                    name: "Hypertube Team",
+                    name: "DBMS Team",
                     email: "emilie.brun.dmv@gmail.com"},
                   to: sanitize(user.email),
-                subject: 'HYPERTUBE 🎬 | Password Reset',
+                subject: 'DBMS 🎬 | Password Reset',
                 html: html,
             }
             sgMail.send(mailOptions, function (err) {

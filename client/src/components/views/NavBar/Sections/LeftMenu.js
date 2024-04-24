@@ -18,8 +18,11 @@ function LeftMenu(props) {
     } else {
     return (
       <Menu mode={props.mode}>
-      <Menu.Item key="">
+      <Menu.Item key="1">
       <a href="/favorite"><PopcornIcon type="icon-popcorn" style={{fontSize: "25px"}}/>{t('navbar.favorites')}</a>
+      </Menu.Item>
+      <Menu.Item key="2">
+      <a href="/landing"><PopcornIcon type="icon-popcorn" style={{fontSize: "25px"}}/>{"Landing Page"}</a>
       </Menu.Item>
     </Menu>
     )

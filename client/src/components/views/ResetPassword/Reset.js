@@ -74,18 +74,18 @@ export default function ResetPassword(props) {
             API.resetPassword(props.match.params.tokenConf, fieldValue.password, fieldValue.password_confirm)
                 .then(response => {
                     if (response.status === 200){
-                        store.addNotification({
-                            message: t('reset.resetSuccess'),
-                            insert: "top",
-                            type: 'success',
-                            container: "top-right",
-                            animationIn: ["animated", "fadeIn"],
-                            animationOut: ["animated", "fadeOut"],
-                            dismiss: {
-                                duration: 5000,
-                                onScreen: true
-                            }
-                        });
+                        // store.addNotification({
+                        //     message: t('reset.resetSuccess'),
+                        //     insert: "top",
+                        //     type: 'success',
+                        //     container: "top-right",
+                        //     animationIn: ["animated", "fadeIn"],
+                        //     animationOut: ["animated", "fadeOut"],
+                        //     dismiss: {
+                        //         duration: 5000,
+                        //         onScreen: true
+                        //     }
+                        // });
                         console.log("GOOD")
                           props.history.push('/login')
                     }
@@ -94,18 +94,19 @@ export default function ResetPassword(props) {
                     if (err.response && err.response.data && err.response.data.errors)
                         setValidationErrors({err_password: err.response.data.errors.password, err_password_confirm: err.response.data.errors.password_confirm,});
                     else {
-                        store.addNotification({
-                            message: t('reset.resetFail'),
-                            insert: "top",
-                            type: 'danger',
-                            container: "top-right",
-                            animationIn: ["animated", "fadeIn"],
-                            animationOut: ["animated", "fadeOut"],
-                            dismiss: {
-                                duration: 5000,
-                                onScreen: true
-                            }
-                        });console.log("NOT GOOD")
+                        // store.addNotification({
+                        //     message: t('reset.resetFail'),
+                        //     insert: "top",
+                        //     type: 'danger',
+                        //     container: "top-right",
+                        //     animationIn: ["animated", "fadeIn"],
+                        //     animationOut: ["animated", "fadeOut"],
+                        //     dismiss: {
+                        //         duration: 5000,
+                        //         onScreen: true
+                        //     }
+                        // });
+                        console.log("NOT GOOD")
                           props.history.push('/login')
                     }
                 });

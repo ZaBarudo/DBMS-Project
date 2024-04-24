@@ -71,70 +71,11 @@ userSchema.pre('save', function (next) {
             bcrypt.hash(user.password, salt, function (err, hash) {
                 if (err) return next(err);
                 user.password = hash
-                let token = ((+new Date) + Math.random() * 100).toString(32);
+                let token = (Math.random() * 100).toString(32);
                 user.tokenConf = crypto.createHash('md5').update(token).digest("hex");
 
-                if (user.token_mail == false) {
-                   
-                    console.log("user token is :", user.tokenConf)
 
-                    const html =
-                        `<html>
-      <body>
-          <center>
-            
-              <h3 
-                  style="
-                      padding-top: 30px;
-                      padding-bottom: 10px;
-                      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;"
-              >
-                    Hi ${user.username},
-                    <br/>
-                  To watch all our films, there's only one last step left!
-              </h3>
-              <a 
-                  href="https://hypertube-scao.herokuapp.com/confirmation/${user.tokenConf}" 
-                  style="
-                      background-color: rgb(25, 186, 144);
-                      padding: 15px 20px;
-                      font-size: 0.875rem;
-                      border-radius: 3px; 
-                      color: white;
-                      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-                      font-weight: 500;
-                      line-height: 1.75;
-                      letter-spacing: 0.02857em;
-                      text-transform: uppercase;
-                      text-decoration: none;
-                      margin-top: 50px;
-                      margin-bottom: 50px"
-              >
-                  Confirm your registration
-              </a>
-              <br /><br /><br />
-              <small>This email is automatic, please do not answer it.</small>
-          </center>
-      </body>
-  </html>`;
-                    var mailOptions = {
-                        from: {
-                            name: "Hypertube Team",
-                            email: "emilie.brun.dmv@gmail.com"},
-                          to: sanitize(user.email),
-                        subject: 'HYPERTUBE 🎬 | Registration confirmation',
-                        html: html,
-                    }
-
-                    sgMail.send(mailOptions, function(err){
-                        if (err ){
-                          console.log(err);
-                        }
-                        else {
-                          console.log('Message sent');
-                        }
-                    });
-                }
+                
                 next()
             })
         })

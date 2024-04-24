@@ -143,7 +143,7 @@ function LoginPage(props) {
 
                 <div className="container" style={{ textAlign: "center" }}>
                 <label ><p style={{ color: '#ff0000bf', backgroundColor: 'white', textAlign: 'center', fontSize: '0.85rem', border: '1px solid', padding: '0.5rem', borderRadius: '10px' }}>
-                Welcome to the Live Demo.<br />
+               <br />
                   You can sign up now or use the following credentials:<br />
                   <b>Username:</b> test <br />
                   <b>Password:</b> test</p></label>

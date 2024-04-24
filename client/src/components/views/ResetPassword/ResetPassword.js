@@ -79,18 +79,18 @@ export default function ForgotPassword(props) {
             API.sendResetMail(value.email)
                 .then(res => {
                     if (res.status === 200)
-                        store.addNotification({
-                            message: t("reset.resetMail"),
-                            insert: "top",
-                            type: 'success',
-                            container: "top-right",
-                            animationIn: ["animated", "fadeIn"],
-                            animationOut: ["animated", "fadeOut"],
-                            dismiss: {
-                                duration: 5000,
-                                onScreen: true
-                            }
-                        });
+                        // store.addNotification({
+                        //     message: t("reset.resetMail"),
+                        //     insert: "top",
+                        //     type: 'success',
+                        //     container: "top-right",
+                        //     animationIn: ["animated", "fadeIn"],
+                        //     animationOut: ["animated", "fadeOut"],
+                        //     dismiss: {
+                        //         duration: 5000,
+                        //         onScreen: true
+                        //     }
+                        // });
                     props.history.push('/login');
                 })
                 .catch(() => { setValidationErrors({ err_email: t('reset.resetMailErr') }) })

@@ -13,34 +13,34 @@ export default function ForgotPassword(props) {
                 .then((res=> {
                     // console.log("res status is : ",res)
                     if (res.status === 200) {
-                        store.addNotification({
-                            message: t('login.activated'),
-                            insert: "top",
-                            type: 'success',
-                            container: "top-right",
-                            animationIn: ["animated", "fadeIn"],
-                            animationOut: ["animated", "fadeOut"],
-                            dismiss: {
-                                duration: 5000,
-                                onScreen: true
-                            }
-                        });
+                        // store.addNotification({
+                        //     message: t('login.activated'),
+                        //     insert: "top",
+                        //     type: 'success',
+                        //     container: "top-right",
+                        //     animationIn: ["animated", "fadeIn"],
+                        //     animationOut: ["animated", "fadeOut"],
+                        //     dismiss: {
+                        //         duration: 5000,
+                        //         onScreen: true
+                        //     }
+                        // });
                         props.history.push('/login');
                     }
                     else{
                         console.log("res status is : ")
-                        store.addNotification({
-                            message: t('login.tokenFail'),
-                            insert: "top",
-                            type: 'fail',
-                            container: "top-right",
-                            animationIn: ["animated", "fadeIn"],
-                            animationOut: ["animated", "fadeOut"],
-                            dismiss: {
-                                duration: 5000,
-                                onScreen: true
-                            }
-                        });
+                        // store.addNotification({
+                        //     message: t('login.tokenFail'),
+                        //     insert: "top",
+                        //     type: 'fail',
+                        //     container: "top-right",
+                        //     animationIn: ["animated", "fadeIn"],
+                        //     animationOut: ["animated", "fadeOut"],
+                        //     dismiss: {
+                        //         duration: 5000,
+                        //         onScreen: true
+                        //     }
+                        // });
                     }
                 }))
                 .catch((

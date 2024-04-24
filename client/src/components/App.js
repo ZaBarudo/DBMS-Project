@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
 import { useTranslation } from 'react-i18next';
 import Spinner from './views/LandingPage/Sections/Spinner';
-import ReactNotification from "react-notifications-component";
+import { ReactNotification } from "react-notifications-component";
 import 'react-notifications-component/dist/theme.css'
 // pages for this product
 import LandingPage from "./views/LandingPage/LandingPage.js";
@@ -14,7 +14,7 @@ import GenresPage from './views/GenresPage/GenresPage.js';
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
-import Footer from "./views/Footer/Footer";
+// import Footer from "./views/Footer/Footer";
 import MovieDetail from "./views/MovieDetail/MovieDetail";
 import FavoritePage from "./views/FavoritePage/FavoritePage";
 import ProfilePage from "./views/ProfilePage/ProfilePage";
@@ -31,7 +31,7 @@ function App() {
     <Suspense fallback={t(<Spinner />)}>
       <NavBar />
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
-      <div className={"notifications"}> <ReactNotification /> </div>
+      {/* <div className={"notifications"}> <ReactNotification /> </div> */}
         <Switch>
           <Route exact path="/" component={Auth(LoginPage, false)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
